@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>POS Checkout</title>
+  <!-- Enables fullscreen mode on iPad when saved to Home Screen -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <style>
+    * {
+      box-sizing: border-box;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #f4f5f7;
+      color: #172b4d;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      width: 90%;
+      max-width: 550px;
+      text-align: center;
+    }
+    h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+    p {
+      color: #5e6c84;
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+    .btn {
+      background-color: #0052cc;
+      color: white;
+      border: none;
+      padding: 22px;
+      border-radius: 12px;
+      font-size: 20px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.15s ease;
+    }
+    .btn:active {
+      background-color: #003d99;
+      transform: scale(0.98);
+    }
+    .btn-secondary {
+      background-color: #ebecf0;
+      color: #172b4d;
+    }
+    .btn-full {
+      grid-column: span 2;
+    }
+    .step {
+      display: none;
+    }
+    .step.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <!-- Screen 1: Initial Tip -->
+    <div id="step-1" class="step active">
+      <h1>It's just going to ask you a quick question...</h1>
+      <p>Select a tip for your host:</p>
+      <div class="grid">
+        <button class="btn" onclick="nextStep(2)">20%</button>
+        <button class="btn" onclick="nextStep(2)">25%</button>
+        <button class="btn" onclick="nextStep(2)">30%</button>
+        <button class="btn btn-secondary" onclick="nextStep(2)">Custom (Min 50%)</button>
+      </div>
+    </div>
+
+    <!-- Screen 2: Barista / Host Relief Fund -->
+    <div id="step-2" class="step">
+      <h1>Would you like to round up?</h1>
+      <p>Donate $5 to support tired party hosts and caffeine sufferers?</p>
+      <div class="grid">
+        <button class="btn" onclick="nextStep(3)">Yes, add $5</button>
+        <button class="btn" onclick="nextStep(3)">Yes, add $10</button>
+        <button class="btn btn-secondary btn-full" onclick="nextStep(3)">No (Make host cry)</button>
+      </div>
+    </div>
+
+    <!-- Screen 3: Spooky Fee -->
+    <div id="step-3" class="step">
+      <h1>Convenience & Ghost Fee</h1>
+      <p>A mandatory 15% Spooky Service Fee applies to late night snacks.</p>
+      <div class="grid">
+        <button class="btn btn-full" onclick="nextStep(4)">Accept & Continue</button>
+        <button class="btn btn-secondary btn-full" onclick="nextStep(4)">Accept & Pay Double</button>
+      </div>
+    </div>
+
+    <!-- Screen 4: Final Punchline / Receipt -->
+    <div id="step-4" class="step">
+      <h1>🎃 Happy Halloween! 👻</h1>
+      <p>Your total comes to <strong>$1,492.50</strong>.<br><br>Just kidding—enjoy the party!</p>
+      <button class="btn btn-full" onclick="resetApp()">Reset for Next Victim</button>
+    </div>
+  </div>
+
+  <script>
+    function nextStep(stepNumber) {
+      document.querySelectorAll('.step').forEach(step => step.classList.remove('active'));
+      document.getElementById('step-' + stepNumber).classList.add('active');
+    }
+
+    function resetApp() {
+      nextStep(1);
+    }
+  </script>
+</body>
+</html>
