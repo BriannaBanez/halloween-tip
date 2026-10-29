@@ -82,10 +82,10 @@
 <body>
 
   <div class="card">
-    <!-- Screen 1: Initial Tip -->
+    <!-- Initial Tip -->
     <div id="step-1" class="step active">
-      <h1>It's just going to ask you a quick question...</h1>
-      <p>Select a tip for your host:</p>
+      <h1>Add a tip?</h1>
+      <p></p>
       <div class="grid">
         <button class="btn" onclick="nextStep(2)">20%</button>
         <button class="btn" onclick="nextStep(2)">25%</button>
@@ -94,29 +94,58 @@
       </div>
     </div>
 
-    <!-- Screen 2: Barista / Host Relief Fund -->
+    <!-- Barista Surgery Fund -->
     <div id="step-2" class="step">
       <h1>Would you like to round up?</h1>
-      <p>Donate $5 to support tired party hosts and caffeine sufferers?</p>
+      <p>Help fund our employee college opportunities so they can pursue their dreams.</p>
       <div class="grid">
-        <button class="btn" onclick="nextStep(3)">Yes, add $5</button>
-        <button class="btn" onclick="nextStep(3)">Yes, add $10</button>
-        <button class="btn btn-secondary btn-full" onclick="nextStep(3)">No (Make host cry)</button>
+        <button class="btn" onclick="nextStep(3)">Donate $5</button>
+        <button class="btn" onclick="nextStep(3)">Donate $10</button>
+        <button class="btn btn-secondary btn-full" onclick="nextStep(3)">F*** their dreams.</button>
       </div>
     </div>
 
-    <!-- Screen 3: Spooky Fee -->
+    <!-- Milk Choice -->
     <div id="step-3" class="step">
-      <h1>Convenience & Ghost Fee</h1>
-      <p>A mandatory 15% Spooky Service Fee applies to late night snacks.</p>
+      <h1>Select your milk option</h1>
+      <p>Standard dairy causes your barista existential distress</p>
       <div class="grid">
-        <button class="btn btn-full" onclick="nextStep(4)">Accept & Continue</button>
-        <button class="btn btn-secondary btn-full" onclick="nextStep(4)">Accept & Pay Double</button>
+        <button class="btn" onclick="nextStep(4)">Whole Milk</button>
+        <button class="btn" onclick="nextStep(4)">Oat Milk (+$2.50)</button>
+        <button class="btn" onclick="nextStep(4)">Nut Milk (+$2.50)</button>
+        <button class="btn" onclick="nextStep(4)">Hemp Milk (+$3.50)</button>
+        <button class="btn" onclick="nextStep(4)">Soy Boy Milk (+$3.50)</button>
+        <button class="btn" onclick="nextStep(4)">Mommy's Milk (+$3.50)</button>
+        <button class="btn" onclick="nextStep(4)">Yeti Milk<br>(the good kind) (+$5.00)</button>
+        <button class="btn" onclick="nextStep(4)">No Milk (coward)</button>
       </div>
     </div>
 
-    <!-- Screen 4: Final Punchline / Receipt -->
+    <!-- WiFi Tax -->
     <div id="step-4" class="step">
+      <h1>Do you need the WiFi password?</h1>
+      <p>Occupying our reclaimed wood communal table while writing a screenplay incurs atmospheric rent.</p>
+      <div class="grid">
+        <button class="btn btn-full" onclick="nextStep(5)">No, I'm just gonna sit here like a psycho</button>
+        <button class="btn btn-full" onclick="nextStep(5)">Yes, I have some homework to finish (+$12.50)</button>
+        <button class="btn btn-full" onclick="nextStep(5)">Yes, I'm not leaving until I finish writing my manifesto (+$18.00)</button>
+      </div>
+    </div>
+
+    <!-- Receipt Preference -->
+    <div id="step-5" class="step">
+      <h1>How would you like your receipt?</h1>
+      <p>Paper receipts contribute to deforestation, while digital receipts require servers that emit micro-carbon.</p>
+      <div class="grid">
+        <button class="btn btn-full" onclick="nextStep(6)">No Receipt ($2 Carbon Offset)</button>
+        <button class="btn btn-full" onclick="nextStep(6)">Text Receipt ($4 Data Fee)</button>
+        <button class="btn btn-full" onclick="nextStep(6)">Email Receipt ($5 Boomer Fee)</button>
+        <button class="btn btn-full" onclick="nextStep(6)">Printed on Hand-Pressed Papyrus ($12)</button>
+      </div>
+    </div>
+
+    <!-- Final Punchline / Receipt -->
+    <div id="step-6" class="step">
       <h1>🎃 Happy Halloween! 👻</h1>
       <p>Your total comes to <strong>$1,492.50</strong>.<br><br>Just kidding—enjoy the party!</p>
       <button class="btn btn-full" onclick="resetApp()">Reset for Next Victim</button>
